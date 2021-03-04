@@ -11,6 +11,7 @@ public class PointScript : MonoBehaviour
     void Start()
     {
       this.Points = GameObject.Find("PointsText");
+       
     }
 
     // Update is called once per frame
@@ -18,18 +19,18 @@ public class PointScript : MonoBehaviour
     {
  
     }
-    void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collision collision)
     {
-        if (tag == "SmallStarTag")
+        if ("SmallStarTag" == collision.gameObject.tag)
         { point += 5; }
 
-        else if (tag == "LargeStarTag")
+        else if ("LargeStarTag" ==  collision.gameObject.tag)
         { point += 15; }
 
-        else if (tag == "SmallCloudTag")
+        else if ("SmallCloudTag" == collision.gameObject.tag)
         { point += 7; }
 
-        else if (tag == "LargeCloudTag")
+        else if ("LargeCloudTag" == collision.gameObject.tag)
         { point += 21; }
 
         Points.GetComponent<Text>().text = "" + point;
